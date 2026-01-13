@@ -9,11 +9,13 @@ Paper: [PanDx: AI-assisted Early Detection of Pancreatic Ductal Adenocarcinoma o
 
 If you find our code/paper helpful for your research, please kindly consider citing our work:
 ```
-@article{liu2025ai,
-  title={PanDx: AI-assisted Early Detection of Pancreatic Ductal Adenocarcinoma on Contrast-enhanced CT},
+@inproceedings{liu2025pandx,
+  title={PanDx: AI-Assisted Early Detection of Pancreatic Ductal Adenocarcinoma on Contrast-Enhanced CT},
   author={Liu, Han and Gao, Riqiang and Krieg, Eileen and Grbic, Sasa},
-  journal={arXiv preprint arXiv:2503.10068},
-  year={2025}
+  booktitle={International Workshop on Applications of Medical AI},
+  pages={63--71},
+  year={2025},
+  organization={Springer}
 }
 ```
 
@@ -112,6 +114,7 @@ This code is built upon the following works. We gratefully acknowledge their con
 1. Isensee, Fabian, et al. "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation." Nature methods
 2. Bosma, Joeran S, et al. "Semi-supervised learning with report-guided pseudo labels for deep learning–based prostate cancer detection using biparametric MRI." Radiology AI
 3. Alves, Natália,  et al. "Fully automatic deep learning framework for pancreatic ductal adenocarcinoma detection on computed tomography." Cancers
+
 
 
 
