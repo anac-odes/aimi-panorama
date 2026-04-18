@@ -1,3 +1,11 @@
+# Improvement of PanDx
+Group 3
+
+Part of the PANORAMA grand challenge: https://panorama.grand-challenge.org/ 
+Baseline is copied from the challenge winners, and can be found fully here: https://github.com/han-liu/PanDx 
+
+
+
 # PanDx: AI-assisted Pancreatic Ductal Adenocarcinoma Detection 
 [![arXiv](https://img.shields.io/badge/preprint-2503.10068-blue)](https://arxiv.org/abs/2503.10068) [![cite](https://img.shields.io/badge/cite-BibTex-red)](xx) [![leaderboard](https://img.shields.io/badge/Leaderboard-yellow)](https://panorama.grand-challenge.org/evaluation/testing-phase/leaderboard/) [![website](https://img.shields.io/badge/Challenge%20website-50d13d)](https://panorama.grand-challenge.org/)
 
