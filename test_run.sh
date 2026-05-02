@@ -4,11 +4,12 @@
 set -e
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-DOCKER_TAG="panorama-baseline"
+DOCKER_TAG="panorama"
 DOCKER_NOOP_VOLUME="${DOCKER_TAG}-volume"
 
-INPUT_DIR="${SCRIPT_DIR}/test/input"
-OUTPUT_DIR="${SCRIPT_DIR}/test/output"
+# CHANGE: Adjust paths - to the workspace folder
+INPUT_DIR="${SCRIPT_DIR}/workspace/test_example/input"
+OUTPUT_DIR="${SCRIPT_DIR}/workspace/test_example/output"
 
 
 echo "=+= Cleaning up any earlier output"
