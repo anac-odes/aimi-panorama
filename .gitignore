@@ -181,3 +181,4 @@ __pycache__/
 *.pyc
 *.egg-info/
 *.tar.gz
+*.egg-info/
