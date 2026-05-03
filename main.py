@@ -274,7 +274,7 @@ def run(args):
         likelohood[f"{filename}"] = patient_level_prediction
     
     if os.path.exists(working_folder):
-        shutil.rmtree(working_folder)
+        shutil.rmtree(working_folder, ignore_errors=True)
 
     write_json_file(location=osp.join(args.output_dir, f"pdac-likelihood.json"), content=likelohood)
     print(f"\nInference time: {(time.time()-start)/len(npz_fps):.2f} seconds per image")
