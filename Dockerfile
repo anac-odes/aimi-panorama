@@ -1,5 +1,5 @@
 #FROM --platform=linux/amd64 pytorch/pytorch
-FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04 AS base
+FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04 AS base
 
 # Use a 'large' base container to show-case how to load pytorch and use the GPU (when enabled)
 
@@ -10,31 +10,25 @@ ENV PYTHONWARNINGS="ignore "
 # CHANGE: Added
 ENV DEBIAN_FRONTEND=noninteractive 
 
-# CHANGE: Switch Python version from 3.9 to 3.12
+# CHANGE: Switch Python version from 3.9 to 3.12 and remove some stuff
 RUN apt-get update && \
-  apt-get install -y software-properties-common && \
-  add-apt-repository ppa:deadsnakes/ppa && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  git \
-  wget \
-  unzip \
-  libopenblas-dev \
-  python3.12 \
-  python3.12-dev \
-  python3-pip \
-  nano \
-  && \
-  apt-get clean autoclean && \
-  apt-get autoremove -y && \
-  rm -rf /var/lib/apt/lists/* 
-
-# CHANGE: Added:
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 && \
-    update-alternatives --install /usr/bin/python python python /usr/bin/python3.12 1
+    apt-get install -y \
+        git \
+        wget \
+        unzip \
+        libopenblas-dev \
+        python3 \
+        python3-dev \
+        python3-pip \
+        nano \
+    && \
+    apt-get clean autoclean && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/* 
 
 # CHANGE: Added:
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
-    python3.12 get-pip.py && \
+    python3 get-pip.py && \
     rm get-pip.py
 
 RUN groupadd -r user && useradd -m --no-log-init -r -g user user
@@ -50,7 +44,7 @@ USER user
 COPY --chown=user:user requirements.txt /opt/app/requirements.txt
 
 # You can add any Python dependencies to requirements.txt
-RUN python3.12 -m pip install \
+RUN python3 -m pip install \
     --user \
     --no-cache-dir \
     --no-color \
@@ -107,8 +101,8 @@ WORKDIR /opt/app
 COPY --chown=user:user ./main.py /opt/app/main.py
 
 ### Set environment variable defaults
-ENV nnUNet_raw="/opt/algorithm/nnunet/nnUNet_raw" \
-    nnUNet_preprocessed="/opt/algorithm/nnunet/nnUNet_preprocessed" \
-    nnUNet_results="/opt/algorithm/nnunet/nnUNet_results"
+ENV nnUNet_raw="/opt/algorithm/nnUNet_raw" \
+    nnUNet_preprocessed="/opt/algorithm/nnUNet_preprocessed" \
+    nnUNet_results="/opt/algorithm/nnUNet_results"
 
-ENTRYPOINT ["python3.12", "/opt/app/main.py", "-i", "/input", "-o", "/output"]
+ENTRYPOINT ["python3", "/opt/app/main.py", "-i", "/input", "-o", "/output"]
