@@ -62,7 +62,8 @@ def downsample_panorama_dataset(img_dir, img_save_dir, resample=(4.5, 4.5, 9.0))
     assert osp.exists(img_dir), f'image directory does not exist: {img_dir}'
     if not osp.exists(img_save_dir):
         os.mkdir(img_save_dir)
-    img_paths = sorted(glob(img_dir + '/*.*'))
+    #img_paths = sorted(glob(img_dir + '/*.*'))
+    img_paths = sorted([f for f in glob(img_dir + '/*.*') if not f.endswith('.json')])
     if len(img_paths) == 0:
         print('No images found in input directory')
     with tqdm(total=len(img_paths)) as pbar:
@@ -257,7 +258,8 @@ def run(args):
         store_probability_maps=True)
 
     npz_fps = sorted(glob(cropped_pred_folder + '/*.npz'))
-    img_fps = sorted(glob(image_folder + '/*.*'))
+    #img_fps = sorted(glob(image_folder + '/*.*'))
+    img_fps = sorted([f for f in glob(image_folder + '/*.*') if not f.endswith('.json')])
     likelohood = {}
 
     for npz_fp, img_fp in zip(npz_fps, img_fps):
