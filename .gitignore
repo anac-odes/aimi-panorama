@@ -177,3 +177,6 @@ pyrightconfig.json
 workspace/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+__pycache__/
+*.pyc
+*.egg-info/
