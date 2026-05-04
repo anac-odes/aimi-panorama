@@ -78,7 +78,8 @@ def downsample_panorama_dataset(img_dir, img_save_dir, resample=(4.5, 4.5, 9.0))
 def crop_roi(img_dir, low_msk_dir, save_img_dir, margins=[100, 50, 15]):
     if not osp.exists(save_img_dir):
         os.mkdir(save_img_dir)
-    img_paths = sorted(glob(img_dir + '/*.*'))
+    #img_paths = sorted(glob(img_dir + '/*.*'))
+    img_paths = sorted([f for f in glob(img_dir + '/*.*') if not f.endswith('.json')])
     crop_coordinates = {}
     with tqdm(total=len(img_paths)) as pbar:
         for img_path in img_paths:
