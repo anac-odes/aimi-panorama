@@ -205,10 +205,11 @@ def run(args):
         os.mkdir(args.output_dir)
     if not osp.exists(working_folder):
         os.mkdir(working_folder)
-    if not osp.exists(osp.join(args.output_dir, "pdac-detection-map")):
-        os.mkdir(osp.join(args.output_dir, "pdac-detection-map"))
+    if not osp.exists(osp.join(args.output_dir, "images", "pdac-detection-map")):
+        os.makedirs(osp.join(args.output_dir, "images", "pdac-detection-map"), exist_ok=True)
 
-    image_folder = osp.join(args.input_dir)
+    #image_folder = osp.join(args.input_dir)
+    image_folder = osp.join(args.input_dir, "images", "venous-ct")
     clinical_info_path = osp.join(args.input_dir, "clinical-information-pancreatic-ct.json")
 
     try:
@@ -272,14 +273,15 @@ def run(args):
         nifti_fp = npz_fp.replace('.npz', '.nii.gz')
         prediction_postprocessed = PostProcessing(prediction, nifti_fp)
         detection_map, patient_level_prediction = GetFullSizDetectionMap(prediction_postprocessed, crop_coordinates[filename], itk_img, args.inv_alpha)
-        detection_map_fp = osp.join(args.output_dir, "pdac-detection-map", f'{filename}.nii.gz')
+        detection_map_fp = osp.join(args.output_dir, "images", "pdac-detection-map", f'{filename}.mha')
         sitk.WriteImage(detection_map, detection_map_fp)
         likelohood[f"{filename}"] = patient_level_prediction
     
     if os.path.exists(working_folder):
         shutil.rmtree(working_folder, ignore_errors=True)
 
-    write_json_file(location=osp.join(args.output_dir, f"pdac-likelihood.json"), content=likelohood)
+    patient_score = float(list(likelohood.values())[0])
+    write_json_file(location=osp.join(args.output_dir, f"pdac-likelihood.json"), content=patient_score)
     print(f"\nInference time: {(time.time()-start)/len(npz_fps):.2f} seconds per image")
     print(f"Patient-level scores  are saved at: {osp.join(args.output_dir, f'pdac-likelihood.json')}")
     print(f"Lesion detection maps are saved at: {osp.join(args.output_dir, 'pdac-detection-map')}\n")
