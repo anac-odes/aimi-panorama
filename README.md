@@ -19,6 +19,8 @@ Our contributions:
 
 
 The data preprocessing and DASE scripts can be found in `custom-files` folder.
+The shell scripts used to submit jobs, along with part of the results, 
+are in the `scripts_and_outputs/` folder.
 
 Winning model: [PanDx](https://github.com/han-liu/PanDx) by Han Liu et al.
 Challenge: https://panorama.grand-challenge.org/
@@ -118,6 +120,9 @@ Replace `nnUNetTrainer_WFocalLoss` with any trainer from the
 > winning solution and must be copied from their released model bundle before
 > training. See the [PanDx repository](https://github.com/han-liu/PanDx) for
 > instructions on downloading the pretrained bundle.
+
+
+
 
 
 
