@@ -1,0 +1,81 @@
+scanning 2238 image/label pairs in /vol/csedu-nobackup/course/IMC037_aimi/group03/analeopold/aimi-panorama/workspace/nnUNet_raw/Dataset107_PDAC_Detection
+
+[drop]  100028_00001 -- large spacing drift ([0.3910059928894043, 0.3910059928894043, 8.0] vs [0.3910059928894043, 0.3910059928894043, 4.79998779296875])
+[snap]  100074_00001
+[drop]  100118_00001 -- direction mismatch (img [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, -1.0] vs seg [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0])
+[snap]  100134_00001
+[snap]  100168_00001
+[snap]  100235_00001
+[snap]  100290_00001
+[snap]  100351_00001
+[snap]  100369_00001
+[snap]  100405_00001
+[snap]  100427_00001
+[snap]  100564_00001
+[snap]  100583_00001
+[snap]  100815_00001
+[snap]  100825_00001
+[drop]  100936_00001 -- large spacing drift ([0.3910059928894043, 0.3910059928894043, 0.7543209791183472] vs [0.3910059928894043, 0.3910059928894043, 0.5])
+[snap]  100978_00001
+[snap]  101054_00001
+[snap]  101080_00001
+[snap]  101178_00001
+[snap]  101286_00001
+[snap]  101351_00001
+[snap]  101472_00001
+[snap]  101475_00001
+[snap]  101695_00001
+[snap]  101716_00001
+[snap]  101749_00001
+[snap]  101852_00001
+[snap]  101857_00001
+[snap]  101877_00001
+[snap]  101880_00001
+[snap]  102049_00001
+[snap]  102102_00001
+[snap]  102134_00001
+[snap]  102149_00001
+
+updated dataset.json: numTraining 2238 -> 2235
+
+============================================================
+clean (untouched)      : 2203
+metadata snapped       : 32
+dropped (real mismatch): 3
+dropped (no label)     : 0
+remaining for training : 2235
+============================================================
+
+Dropped cases (moved to _dropped/):
+  - 100028_00001: large spacing drift ([0.3910059928894043, 0.3910059928894043, 8.0] vs [0.3910059928894043, 0.3910059928894043, 4.79998779296875])
+  - 100118_00001: direction mismatch (img [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, -1.0] vs seg [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0])
+  - 100936_00001: large spacing drift ([0.3910059928894043, 0.3910059928894043, 0.7543209791183472] vs [0.3910059928894043, 0.3910059928894043, 0.5])
+
+
+###############################################################################
+Science Cluster
+Job 10112080 for user 'analeopold'
+Finished at: Wed May 20 20:01:37 CEST 2026
+
+Job details:
+============
+
+Name                : fix_dataset.sh
+User                : analeopold
+Partition           : csedu
+Nodes               : cn47
+Cores               : 12
+State               : COMPLETED
+Submit              : 2026-05-20T16:58:40
+Start               : 2026-05-20T16:58:40
+End                 : 2026-05-20T20:01:37
+Reserved walltime   : 12:00:00
+Used walltime       : 03:02:57
+Used CPU time       : 00:11:39 (efficiency:  0.53%)
+% User (Computation): 69.18%
+% System (I/O)      : 30.82%
+Mem reserved        : 16G
+Max Mem used        : 386.49M (cn47)
+Max Disk Write      : 0.00  (cn47)
+Max Disk Read       : 13.07M (cn47)
+
