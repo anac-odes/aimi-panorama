@@ -123,6 +123,22 @@ Replace `nnUNetTrainer_WFocalLoss` with any trainer from the
 
 ## Inference
 
+### Docker container Inference
+
+To run the inference in the Docker container, the DockerFile needs to exist 
+and the following should be run in the terminal:
+
+```bash
+test_run.sh
+```
+And then to save the Docker container:
+
+```bash
+save.sh
+```
+
+The container is then submitted to the Grand challenge.
+
 ### Set up environment variables for nnU-Net
 ```bash
 export nnUNet_raw="./workspace/nnUNet_raw"
