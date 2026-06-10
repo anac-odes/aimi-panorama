@@ -18,6 +18,8 @@ Our contributions:
   Where the locations of the predicted directory and the label directory are replaced by the correct locations
 
 
+The data preprocessing and DASE scripts can be found in `custom-files` folder.
+
 Winning model: [PanDx](https://github.com/han-liu/PanDx) by Han Liu et al.
 Challenge: https://panorama.grand-challenge.org/
 
