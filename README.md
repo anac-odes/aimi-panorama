@@ -13,6 +13,10 @@ Our contributions:
   `nnUNetTrainer_WFocalLoss`, `nnUNetTrainerTopK10TrainLossS01`,
   `nnUNetTrainerDiceLoss`, `nnUNetTrainerDiceCELoss_noSmooth`, and
   `nnUNetTrainerWCELoss` 
+- Added a script for voxel level evaluation which can be run by the following command:
+  `python evaluate.py --pred_dir ./workspace/workspace/test_example/output/pdac-detection-map --label_dir ./labels --threshold 0.5`
+  Where the locations of the predicted directory and the label directory are replaced by the correct locations
+
 
 Winning model: [PanDx](https://github.com/han-liu/PanDx) by Han Liu et al.
 Challenge: https://panorama.grand-challenge.org/
